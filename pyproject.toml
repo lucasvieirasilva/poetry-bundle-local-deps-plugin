@@ -34,7 +34,7 @@ poetry-bundle-local-deps-plugin = "poetry_bundle_local_deps_plugin:BundleLocalDe
 
 [tool.coverage.run]
 branch = true
-source = [ "aws_codeartifact_poetry" ]
+source = [ "poetry_bundle_local_deps_plugin" ]
 relative_files = true
 
 [tool.coverage.report]
