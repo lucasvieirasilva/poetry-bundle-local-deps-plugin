@@ -5,6 +5,7 @@ description = "Poetry Plugin for Bundling Local Dependencies"
 authors = ["Lucas Vieira <lucas.vieira94@outlook.com>"]
 license = "MIT"
 readme = "README.md"
+repository = "https://github.com/lucasvieirasilva/poetry-bundle-local-deps-plugin"
 
   [[tool.poetry.packages]]
   include = "poetry_bundle_local_deps_plugin"
