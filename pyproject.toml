@@ -1,0 +1,88 @@
+[tool.poetry]
+name = "poetry-bundle-local-deps-plugin"
+version = "0.1.0"
+description = "Poetry Plugin for Bundling Local Dependencies"
+authors = ["Lucas Vieira <lucas.vieira94@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "poetry_bundle_local_deps_plugin"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.7.2"
+pytest = "^8.3.3"
+pytest-html = "^4.1.1"
+pytest-cov = "^6.0.0"
+pytest-sugar = "^1.0.0"
+autopep8 = "^2.3.1"
+python-semantic-release = "^9.12.1"
+pre-commit = "^4.0.1"
+commitizen = "^3.30.0"
+poetry = "^1.8.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."poetry.application.plugin"]
+poetry-bundle-local-deps-plugin = "poetry_bundle_local_deps_plugin:BundleLocalDependenciesPlugin"
+
+[tool.coverage.run]
+branch = true
+source = [ "aws_codeartifact_poetry" ]
+relative_files = true
+
+[tool.coverage.report]
+exclude_lines = [ ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report html:'./coverage/html' --cov-report xml:'./coverage/coverage.xml'"
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version"
+]
+major_on_zero = false
+branch = "main"
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
+commit_message = "chore(release): {version} [skip ci]"
+tag_format = "v{version}"
+
+[tool.ruff]
+exclude = [
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "dist",
+]
+
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+  # pycodestyle
+  "E",
+  # Pyflakes
+  "F",
+  # pyupgrade
+  "UP",
+  # flake8-bugbear
+  "B",
+  # flake8-simplify
+  "SIM",
+  # isort
+  "I",
+]
+ignore = []
+
+fixable = ["ALL"]
+unfixable = []
