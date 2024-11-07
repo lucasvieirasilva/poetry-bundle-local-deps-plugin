@@ -107,7 +107,7 @@ class BundleBuildCommand(BuildCommand):
                         del pyproject["tool"]["poetry"]["dependencies"][name]
                         final_packages = final_pyproject["tool"]["poetry"].get("packages", [])
                         if package not in final_packages:
-                            final_packages.append(package)
+                            final_packages.append({**package})
 
                         final_pyproject["tool"]["poetry"]["packages"] = final_packages
 
