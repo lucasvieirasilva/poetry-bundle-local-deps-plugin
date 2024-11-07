@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-bundle-local-deps-plugin"
-version = "0.1.0"
+version = "0.2.0"
 description = "Poetry Plugin for Bundling Local Dependencies"
 authors = ["Lucas Vieira <lucas.vieira94@outlook.com>"]
 license = "MIT"
